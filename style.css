@@ -42,9 +42,10 @@
 
 .technologies-grid {
 	display: grid;
-  grid-template-columns: 100px 100px 100px 100px 100px 100px 100px;
-  grid-gap: 40px;
-  background-color: #fff;
+	grid-template-columns: repeat(4, 2fr); 
+	place-items: center;
+	column-gap: 10px;
+	row-gap: 25px;
   color: #444;
 }
 
@@ -54,6 +55,7 @@
 	border-radius: 5px;
 	padding: 20px;
 	font-size: 150%;
+	background-size: 100px 100px;
 }
 
 #footer {
