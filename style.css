@@ -1,0 +1,71 @@
+
+.navbar {
+	background-color: #FFF;
+}
+
+.hero {
+	background-image: url('./Images/max-patch.jpeg'); 
+	background-size: cover;
+	background-position: center;
+	filter: grayscale(50%)
+}
+
+
+.hero-vert {
+	position: relative;
+	height: 500px;
+}
+
+.vert {
+	position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.title-block {
+	color: #FFF;
+	text-align: center;
+}
+
+.section-pad {
+	padding-top:80px; 
+	padding-bottom:80px;
+}
+
+.section-dark-background {
+	background-color: #EEEEEE;
+}
+
+.technologies-grid {
+	display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-gap: 10px;
+  background-color: #fff;
+  color: #444;
+}
+
+.box {
+	background-color: #444;
+	color: #fff;
+	border-radius: 5px;
+	padding: 20px;
+	font-size: 150%;
+}
+
+#footer {
+	padding: 40px 0 40px 0;
+}
+
+.social-icons {
+	display: flex;
+	justify-content: flex-end; 
+}
+
+.social-icons a {
+	padding: 0 10px 0 10px;
+}
+
