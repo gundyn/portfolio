@@ -3,6 +3,22 @@
 	background-color: #FFF;
 }
 
+.navbar-nav {
+	flex-direction: row !important;
+	justify-content: space-around;
+}
+
+.nav-item {
+	padding: 0 15px 0 15px;
+}
+
+.anchor {
+  display:block;
+  height:100px; 
+  margin-top:-100px;
+  visibility:hidden;
+}
+
 .hero {
 	background-image: url('./Images/max-patch.jpeg'); 
 	background-size: cover;
