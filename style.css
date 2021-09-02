@@ -1,9 +1,10 @@
 body {
 	font-family: 'Roboto', sans-serif;
+	color: #323a45;
 }
 
 a {
-	color: #000000 !important;
+	color: #323a45 !important;
 }
 
 .screenreader-text {
@@ -103,7 +104,7 @@ a {
 }
 
 .title-block {
-	color: #000000;
+	color: #323a45;
 	text-align: center;
 }
 
