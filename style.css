@@ -40,12 +40,20 @@
 	background-color: #EEEEEE;
 }
 
-.technologies-grid {
-	display: grid;
-	grid-template-columns: repeat(4, 2fr); 
-	place-items: center;
-	column-gap: 10px;
-	row-gap: 25px;
+.about-me p {
+	line-height: 2;
+}
+
+.about-me img {
+	clip-path: circle();
+	max-width: 100%;
+	height: auto;
+}
+
+.technologies-flex {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
   color: #444;
 }
 
@@ -53,9 +61,16 @@
 	background-color: #444;
 	color: #fff;
 	border-radius: 5px;
-	padding: 20px;
+	padding: 15px;
+	margin: 25px;
 	font-size: 150%;
-	background-size: 100px 100px;
+	height: 100px;
+	width: 100px;
+}
+
+.box i {
+	display: flex;
+	justify-content: center;
 }
 
 #footer {
