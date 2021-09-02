@@ -29,6 +29,7 @@
 .title-block {
 	color: #FFF;
 	text-align: center;
+	filter: invert(1) grayscale(1) contrast(9);
 }
 
 .section-pad {
