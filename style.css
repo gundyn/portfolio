@@ -77,10 +77,9 @@ a {
 }
 
 .hero {
-	background-image: url('./Images/max-patch.png'); 
+	background-image: url('./Images/max-patch.png');
 	background-size: cover;
 	background-position: center;
-	filter: grayscale(50%)
 }
 
 .hero h1 {
@@ -95,7 +94,7 @@ a {
 
 .vert {
 	position: relative;
-  top: 50%;
+  top: 25%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
