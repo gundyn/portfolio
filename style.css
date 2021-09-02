@@ -1,4 +1,8 @@
 
+a {
+	color: #000000 !important;
+}
+
 .navbar {
 	background-color: #FFF;
 }
@@ -43,9 +47,8 @@
 }
 
 .title-block {
-	color: #FFF;
+	color: #000000;
 	text-align: center;
-	filter: invert(1) grayscale(1) contrast(9);
 }
 
 .section-pad {
