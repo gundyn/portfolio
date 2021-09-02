@@ -27,7 +27,7 @@ a {
 }
 
 .hero {
-	background-image: url('./Images/max-patch.jpeg'); 
+	background-image: url('./Images/max-patch.png'); 
 	background-size: cover;
 	background-position: center;
 	filter: grayscale(50%)
