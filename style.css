@@ -1,3 +1,6 @@
+body {
+	font-family: 'Roboto', sans-serif;
+}
 
 a {
 	color: #000000 !important;
@@ -28,6 +31,10 @@ a {
 	background-size: cover;
 	background-position: center;
 	filter: grayscale(50%)
+}
+
+.hero h1 {
+	font-family: 'Anton', sans-serif;
 }
 
 
@@ -91,6 +98,10 @@ a {
 .box i {
 	display: flex;
 	justify-content: center;
+}
+
+.projects img {
+	margin-bottom: 30px;
 }
 
 #footer {
