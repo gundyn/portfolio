@@ -175,3 +175,14 @@ a {
 	padding: 0 10px 0 10px;
 }
 
+@media only screen and (max-width : 992px) {
+	
+	.footer {
+		text-align: center;
+	}
+	
+	.social-icons {
+		justify-content: center;
+	}
+	
+}
