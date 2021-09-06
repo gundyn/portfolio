@@ -15,6 +15,14 @@ a {
 	top: auto;
 }
 
+a:focus {
+	outline: none;
+}
+
+.focus-outline:focus-visible {
+	outline: lightgreen solid 2px;
+}
+
 .screenreader-text:focus {
 	color: #000000;
 	display: inline-block;
