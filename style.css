@@ -130,9 +130,19 @@ a:focus {
 }
 
 .about-me img {
-	clip-path: circle();
-	max-width: 100%;
+	/* clip-path: circle(); */
+	width: 100%;
 	height: auto;
+	margin: auto 0;
+}
+
+.about-me .nyc {
+	margin-top: 20%;
+	
+}
+
+.carousel-item {
+	height: 600px;
 }
 
 .technologies-flex {
