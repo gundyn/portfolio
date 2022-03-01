@@ -172,6 +172,10 @@ a:focus {
 	margin-bottom: 30px;
 }
 
+.drum {
+	padding-top: 21%;
+}
+
 .grow {
 	transition: all .2s ease-in-out;
 }
