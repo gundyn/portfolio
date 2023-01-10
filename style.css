@@ -149,7 +149,18 @@ a:focus {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-  color: #444;
+  	color: #444;
+}
+
+#selenium, #postgresql {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#selenium img {
+	height: 100px;
+	width: 100px;
 }
 
 .box {
