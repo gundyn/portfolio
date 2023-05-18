@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- 1. Combine duplicate preconnect link tags -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- 2. Combine duplicate stylesheet link tags -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap&family=Anton&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Other unchanged link and script tags -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
     <script src="https://kit.fontawesome.com/0e73b3830e.js" crossorigin="anonymous"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ56E7YBE0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -73,8 +75,8 @@
       
       <section class="section-pad about-me">
         <div class="container">
-      		<div class="row">
-      			<div class="col-lg-6 my-auto">
+          <div class="row">
+            <div class="col-lg-6 my-auto">
               <span class="anchor" id="about"></span>
               <h2><u>About Me</u></h2>
               <p>I am a software engineer with a focus on test automation. I have experience in a software support role on a QA team, where I've gained valuable knowledge and skills, and now eager to apply that in the field of test automation to continue growing my abilities and taking on new challenges in software development. I am well-versed in a variety of technologies, including Python, Pytest, Selenium, PostgreSQL, JavaScript, React, CSS, and HTML. With my strong technical skills and passion for learning, I am able to adapt quickly to new technologies and programming languages. I am a team player and enjoy working collaboratively with others.</p>
@@ -115,7 +117,7 @@
         <div class="container">
           <span class="anchor" id="technologies"></span>
           <h2><u>Technologies</u></h2>
-      		<div class="row d-flex justify-content-center">
+          <div class="row d-flex justify-content-center">
             <div class="col-lg-6">
               <div class="technologies-flex">
                 <div class="box grow" title="Python"><i class="fab fa-python fa-3x"></i></div>
@@ -191,7 +193,6 @@
         </div>
       </footer>
     </main>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>

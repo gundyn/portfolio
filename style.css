@@ -1,3 +1,22 @@
+/*
+Table of Contents:
+------------------
+1. General Styles
+2. Accessibility
+3. Scroll Button
+4. Navbar
+5. Hero Section
+6. About Me
+7. Carousel
+8. Technologies
+9. Projects
+10. Footer
+*/
+
+/*============================
+      General Styles
+============================*/
+
 body {
 	font-family: 'Roboto', sans-serif;
 	color: #323a45;
@@ -5,14 +24,6 @@ body {
 
 a {
 	color: #323a45 !important;
-}
-
-.screenreader-text {
-	position: absolute;
-	left: -999px;
-	width:1px;
-	height: 1px;
-	top: auto;
 }
 
 a:focus {
@@ -23,6 +34,42 @@ a:focus {
 	outline: lightgreen solid 2px;
 }
 
+.anchor {
+  display:block;
+  height:100px; 
+  margin-top:-100px;
+  visibility:hidden;
+}
+
+.section-pad {
+	padding-top:40px; 
+	padding-bottom:40px;
+}
+
+.section-dark-background {
+	background-color: #EEEEEE;
+}
+
+.grow {
+	transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+	transform: scale(1.1);
+}
+
+/*============================
+      Accessibility
+============================*/
+
+.screenreader-text {
+	position: absolute;
+	left: -999px;
+	width:1px;
+	height: 1px;
+	top: auto;
+}
+
 .screenreader-text:focus {
 	color: #000000;
 	display: inline-block;
@@ -31,6 +78,10 @@ a:focus {
 	position: static;
 	margin: auto;
 }
+
+/*============================
+      Scroll Button
+============================*/
 
 #scroll {
   position:fixed;
@@ -45,7 +96,7 @@ a:focus {
   -webkit-border-radius:60px;
   -moz-border-radius:60px;
   border-radius:60px;
-	opacity: .5
+  opacity: .5
 }
 
 #scroll span {
@@ -59,11 +110,17 @@ a:focus {
   border:8px solid transparent;
   border-bottom-color:#ffffff;
 }
+
 #scroll:hover {
   background-color:#FF2400;
-  opacity:1;filter:"alpha(opacity=100)";
+  opacity:1;
+  filter:"alpha(opacity=100)";
   -ms-filter:"alpha(opacity=100)";
 }
+
+/*============================
+      Navbar
+============================*/
 
 .navbar {
 	background-color: #FFF;
@@ -78,12 +135,9 @@ a:focus {
 	padding: 0 15px 0 0;
 }
 
-.anchor {
-  display:block;
-  height:100px; 
-  margin-top:-100px;
-  visibility:hidden;
-}
+/*============================
+      Hero Section
+============================*/
 
 .hero {
 	background-image: url('./Images/max-patch.png');
@@ -94,7 +148,6 @@ a:focus {
 .hero h1 {
 	font-family: 'Anton', sans-serif;
 }
-
 
 .hero-vert {
 	position: relative;
@@ -116,21 +169,15 @@ a:focus {
 	text-align: center;
 }
 
-.section-pad {
-	padding-top:40px; 
-	padding-bottom:40px;
-}
-
-.section-dark-background {
-	background-color: #EEEEEE;
-}
+/*============================
+      About Me
+============================*/
 
 .about-me p {
 	line-height: 2;
 }
 
 .about-me img {
-	/* clip-path: circle(); */
 	width: 100%;
 	height: auto;
 	margin: auto 0;
@@ -138,12 +185,19 @@ a:focus {
 
 .about-me .nyc {
 	margin-top: 20%;
-	
 }
+
+/*============================
+      Carousel
+============================*/
 
 .carousel-item {
 	height: 600px;
 }
+
+/*============================
+      Technologies
+============================*/
 
 .technologies-flex {
 	display: flex;
@@ -179,6 +233,10 @@ a:focus {
 	justify-content: center;
 }
 
+/*============================
+      Projects
+============================*/
+
 .projects img {
 	margin-bottom: 30px;
 }
@@ -187,13 +245,9 @@ a:focus {
 	padding-top: 21%;
 }
 
-.grow {
-	transition: all .2s ease-in-out;
-}
-
-.grow:hover {
-	transform: scale(1.1);
-}
+/*============================
+      Footer
+============================*/
 
 #footer {
 	padding: 40px 0 40px 0;
