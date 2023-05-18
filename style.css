@@ -192,7 +192,15 @@ a:focus {
 ============================*/
 
 .carousel-item {
-	height: 600px;
+    height: 600px;
+    overflow: hidden; /* This will make sure any part of the image not fitting in the box will be hidden */
+}
+
+.carousel-item img {
+    object-fit: cover;
+    object-position: center; /* aligns smaller images to the center */
+    width: 100%;
+    height: 100%;
 }
 
 /*============================
