@@ -1,0 +1,36 @@
+# This is the name of your GitHub Actions workflow
+name: CI/CD Pipeline
+
+# This workflow gets triggered on push and pull request events to the main branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# Here we define the jobs to be run
+jobs:
+  build: # This is the build job
+
+    # This job runs on an Ubuntu latest environment
+    runs-on: ubuntu-latest
+
+    # These are the steps of the build job
+    steps:
+    # This step checks out a copy of your repository
+    - uses: actions/checkout@v2
+
+    # This step sets up a Node.js environment for the job
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+        
+    # This step installs the dependencies of the project using npm ci command
+    - name: Install dependencies
+      run: npm ci
+      
+    # Uncomment the lines below if you have tests
+    #- name: Run tests
+    #  run: npm test
+    # This step runs the test scripts of the project using npm test command
