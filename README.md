@@ -1,7 +1,5 @@
 # Nathan T. Gundy Portfolio
 
-# Nathan T. Gundy Portfolio
-
 Welcome to the professional portfolio of Nathan T. Gundy, a dedicated software developer and bootcamp graduate with two years of dynamic experience in the tech industry. 
 
 Throughout my professional journey, I've been able to amass a diverse range of skills, with a particular focus on incident management. I've navigated through complex technical incidents, playing a pivotal role in pinpointing issues, troubleshooting errors, and implementing robust solutions. This experience has fostered my ability to work under pressure, think critically, and communicate effectively with various stakeholders.
