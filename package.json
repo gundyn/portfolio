@@ -1,5 +1,11 @@
 {
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4"
+  },
+  "devDependencies": {
+    "cypress": "^12.12.0"
+  },
+  "scripts": {
+    "test": "cypress run"
   }
 }
