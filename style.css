@@ -58,6 +58,36 @@ a:focus {
 	transform: scale(1.1);
 }
 
+@keyframes fadeInLeft {
+	0% {
+	  opacity: 0;
+	  transform: translateX(-50px);
+	}
+	100% {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+}
+
+.hidden {
+	opacity: 0;
+}
+
+.fade-in-left {
+	opacity: 1;
+	transition: opacity 2s ease-in-out; /* Adjust time as needed */
+}  
+
+.fade {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade.show {
+    opacity: 1;
+}
+
+
 /*============================
       Accessibility
 ============================*/
