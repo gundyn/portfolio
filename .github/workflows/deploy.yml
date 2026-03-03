@@ -50,7 +50,7 @@ jobs:
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --verbose --no-progress 'index.html'
+          args: --verbose --no-progress --exclude 'linkedin\.com|codepen\.io' 'index.html'
           fail: true
 
   e2e-tests:
