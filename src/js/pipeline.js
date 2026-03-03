@@ -41,12 +41,23 @@
         tooltip.innerHTML =
           '<strong>' + info.title + '</strong>' +
           '<p>' + info.detail + '</p>';
-  
+        
+        // Prevent edge clipping for first node
+        if (index === 0) {
+          tooltip.style.left = '0';
+          tooltip.style.transform = 'translateX(0) translateY(4px)';
+        }
+        
         node.appendChild(tooltip);
-  
+        
         // Animate in
         requestAnimationFrame(function () {
-          tooltip.classList.add('stage-tooltip--visible');
+          if (index === 0) {
+            tooltip.style.transform = 'translateX(0) translateY(0)';
+            tooltip.style.opacity = '1';
+          } else {
+            tooltip.classList.add('stage-tooltip--visible');
+          }
         });
       });
     });
