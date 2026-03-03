@@ -461,12 +461,9 @@
 	 ============================================ */
 
 	.pipeline-diagram {
-	margin-bottom: 72px;
-	overflow-x: auto;
-	overflow-y: visible;
-	padding-bottom: 8px;
-	scrollbar-width: none;        /* Firefox */
-	-ms-overflow-style: none;     /* IE/Edge */
+		margin-bottom: 72px;
+		overflow: visible;
+		padding-bottom: 8px;
 	}
 	
 	.pipeline-diagram::-webkit-scrollbar {
@@ -477,7 +474,15 @@
 	display: flex;
 	align-items: flex-start;
 	min-width: 640px;
-	padding-top: 10px; /* add this line */
+	padding-top: 10px;
+	position: relative;
+	overflow-x: auto;
+	scrollbar-width: none; 
+	-ms-overflow-style: none;
+  }
+
+  .pipeline-flow::-webkit-scrollbar {
+	display: none;
   }
   
   .pipeline-stage {
