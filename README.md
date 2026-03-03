@@ -1,49 +1,102 @@
-# Nathan T. Gundy Portfolio
+# Nathan T. Gundy — Portfolio
 
-Welcome to the professional portfolio of Nathan T. Gundy, a dedicated software developer and bootcamp graduate with two years of dynamic experience in the tech industry. 
+Personal portfolio site for Nathan T. Gundy, Manager of Change & Release / Release Engineer. Built to demonstrate CI/CD pipeline design and automation skills through actual implementation — the site ships itself.
 
-Throughout my professional journey, I've been able to amass a diverse range of skills, with a particular focus on incident management. I've navigated through complex technical incidents, playing a pivotal role in pinpointing issues, troubleshooting errors, and implementing robust solutions. This experience has fostered my ability to work under pressure, think critically, and communicate effectively with various stakeholders.
+**Live site:** [nathangundy.com](https://www.nathangundy.com/)
 
-Being naturally inclined towards innovation and efficiency, I am deeply interested in automation testing. I believe in the power of automation to optimize workflows, enhance accuracy, and ultimately, drive business growth. By leveraging tools like Selenium, I've been able to design and implement tests that increase coverage, speed up development cycles, and improve the overall quality of software.
+---
 
-This portfolio is a testament to my continuous learning ethos and my commitment to excellence in the field of software development. It is not only a showcase of my technical skills but also an embodiment of my passion for creating software that adds value.
+## What this repo demonstrates
 
-As I continue to expand my knowledge and skills, I am especially interested in delving deeper into automation testing. I am eager to take on new challenges, collaborate with like-minded professionals, and contribute to innovative projects in this exciting space.
+This isn't just a static site — it's a working example of a release pipeline. Every push to `main` triggers a fully automated build, test, and deploy sequence with no manual steps.
 
-## Table of Contents
+### Pipeline overview
 
-- [About Me](#about-me)
-- [Skills](#skills)
-- [Projects](#projects)
-- [Contact Me](#contact-me)
+```
+Push to main
+    │
+    ├── Validate HTML       (html-validate)
+    ├── Lint CSS            (stylelint)
+    ├── Check Links         (lychee)
+    └── Cypress E2E Tests
+            │
+            └── Deploy to GitHub Pages → Cloudflare CDN
+```
 
-## About Me
+All four quality jobs run in parallel. Deploy only fires if every check passes.
 
-In the `About Me` section, you can get to know more about Nathan's background, his journey into software development, and what drives him as a professional.
+---
 
-## Skills
+## Tech stack
 
-Nathan has an extensive set of skills, including:
+| Layer | Tool |
+|---|---|
+| Hosting | GitHub Pages |
+| CDN / DNS / SSL | Cloudflare |
+| CI/CD | GitHub Actions |
+| HTML validation | html-validate |
+| CSS linting | stylelint |
+| Link checking | lychee |
+| E2E testing | Cypress |
+| Fonts | Syne + Manrope (Google Fonts) |
+| Icons | Font Awesome 6 |
 
-- HTML5
-- CSS3
-- JavaScript
-- Python
-- Selenium
-- PostgreSQL
-- Docker
-- Git
+---
 
-You can find a more detailed explanation of his skills and technologies used in the `Skills` section.
+## Project structure
 
-## Projects
+```
+portfolio/
+├── .github/
+│   └── workflows/
+│       └── main.yml        # CI/CD pipeline
+├── cypress/                # E2E test suite
+├── files/
+│   └── Nathan_Gundy_Resume.pdf
+├── Images/
+├── src/js/
+├── .htmlvalidate.json      # HTML validation config
+├── .stylelintrc.json       # CSS lint config
+├── CNAME                   # Custom domain for GitHub Pages
+├── index.html              # Main site
+├── robots.txt
+├── sitemap.xml
+└── style.css
+```
 
-This section showcases Nathan's projects that he has worked on during his career. It demonstrates his understanding of the technologies listed in the skills section and his problem-solving capabilities.
+---
 
-## Contact Me
+## Running locally
 
-Nathan would love to hear from you! If you're interested in connecting, discussing potential opportunities, or just want to say hello, please feel free to reach out.
+No build step required — open `index.html` directly in a browser, or use a local server:
 
-### Visit the Portfolio
+```bash
+npx serve .
+```
 
-Visit [Nathan T. Gundy Portfolio](https://www.nathangundy.com/) to see the live site.
+### Running Cypress tests
+
+```bash
+npm install
+npx cypress open     # interactive
+npx cypress run      # headless
+```
+
+---
+
+## Workflow details
+
+The pipeline is defined in `.github/workflows/main.yml`. Key design decisions:
+
+- **Parallel jobs** — validation, linting, link checking, and E2E tests all run simultaneously to minimize total pipeline time
+- **Gated deploy** — deploy job uses `needs:` to require all checks to pass first
+- **Push-only deploy** — deploy skips on pull requests to prevent premature releases
+- **`workflow_dispatch`** — manual trigger available from the GitHub Actions UI
+
+---
+
+## Contact
+
+- **Email:** nathan.gundy@gmail.com
+- **LinkedIn:** [linkedin.com/in/nathangundy](https://www.linkedin.com/in/nathangundy/)
+- **GitHub:** [github.com/gundyn](https://github.com/gundyn)
