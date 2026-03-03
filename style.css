@@ -821,7 +821,106 @@
 	height: 20px;
 	border-radius: 3px;
   }
+
+/* --- Cloudflare Request Flow --- */
+	.cf-flow {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-top: 12px;
+		padding: 14px;
+		background: var(--bg);
+		border: 1px solid var(--border-light);
+		border-radius: var(--radius);
+	}
+	
+	.cf-flow-step {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 6px;
+		padding: 10px 6px;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		background: var(--bg-card);
+		text-align: center;
+	}
+	
+	.cf-flow-step--accent {
+		border-color: rgb(77 158 255 / 40%);
+		background: var(--accent-dim);
+	}
+	
+	.cf-flow-icon {
+		font-size: 1rem;
+		color: var(--text-muted);
+	}
+	
+	.cf-flow-step--accent .cf-flow-icon {
+		color: var(--accent);
+	}
+	
+	.cf-flow-label {
+		font-size: 0.6rem;
+		font-weight: 700;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		line-height: 1.3;
+	}
+	
+	.cf-flow-step--accent .cf-flow-label {
+		color: var(--accent);
+	}
+	
+	.cf-flow-arrow {
+		font-size: 0.6rem;
+		color: var(--text-muted);
+		flex-shrink: 0;
+	}
+	
+	/* --- Cloudflare Detail List --- */
+	.cf-details {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		margin-top: 12px;
+	}
+	
+	.cf-detail-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 8px;
+	}
+	
+	.cf-detail-icon {
+		font-size: 0.7rem;
+		color: var(--accent);
+		margin-top: 3px;
+		flex-shrink: 0;
+	}
+	
+	.cf-detail-text {
+		font-size: 0.78rem;
+		color: var(--text-secondary);
+		line-height: 1.5;
+	}
   
+	.cf-runs-link {
+		margin-top: 4px;
+		font-size: 0.68rem;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--accent);
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		transition: opacity var(--transition);
+	  }
+	  
+	  .cf-runs-link:hover { opacity: 0.7; }
   
   /* ============================================
 	 8. Footer
