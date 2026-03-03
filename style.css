@@ -453,6 +453,21 @@
 	color: var(--text-muted);
 	letter-spacing: 0.02em;
   }
+
+  .stat-label {
+	font-size: 0.78rem;
+	font-weight: 400;
+	color: var(--text-muted);
+	letter-spacing: 0.02em;
+  }
+  
+  /* ADD HERE */
+  .about-grid {
+	display: grid;
+	grid-template-columns: 7fr 4fr;
+	gap: 60px;
+	align-items: start;
+  }
   
   
   /* ============================================
@@ -1040,6 +1055,11 @@
 	.pipeline-cards {
 	  grid-template-columns: 1fr;
 	}
+
+	.about-grid {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	  }
   }
   
   @media (width <= 768px) {
