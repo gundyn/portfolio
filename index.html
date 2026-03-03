@@ -214,40 +214,91 @@
             <article class="pipeline-card">
               <div class="pipeline-card-label">Stage 01 — Trigger</div>
               <h3 class="pipeline-card-title">GitHub Actions Workflow</h3>
-              <p class="pipeline-card-desc">A workflow file that listens for pushes to main and orchestrates the full build-test-deploy sequence automatically.</p>
+              <p class="pipeline-card-desc">Listens for every push to <code class="inline-code">main</code> and kicks off the full build-test-deploy sequence automatically.</p>
               <div class="pipeline-card-tags">
                 <span class="tag tag-sm tag-accent">GitHub Actions</span>
                 <span class="tag tag-sm">YAML</span>
               </div>
-              <span class="placeholder-label"><i class="fas fa-code-branch fa-xs"></i> Coming soon</span>
+              <div class="code-snippet">
+                <div class="code-snippet-header">
+                  <span class="code-snippet-file"><i class="fas fa-file-code fa-xs"></i> deploy.yml</span>
+                  <a href="https://github.com/gundyn/portfolio/blob/main/.github/workflows/deploy.yml" target="_blank" rel="noopener" class="code-snippet-link">View <i class="fas fa-arrow-up-right-from-square fa-xs"></i></a>
+                </div>
+                <pre class="code-block"><code>on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate-html:
+  lint-css:
+  check-links:
+  deploy:
+    needs: [validate-html,
+            lint-css,
+            check-links]</code></pre>
+              </div>
             </article>
 
             <article class="pipeline-card">
               <div class="pipeline-card-label">Stage 02 — Quality</div>
-              <h3 class="pipeline-card-title">Automated Testing</h3>
-              <p class="pipeline-card-desc">Linting and automated checks that run on every push, catching issues before they ever reach production.</p>
+              <h3 class="pipeline-card-title">Automated Checks</h3>
+              <p class="pipeline-card-desc">Three parallel jobs gate every deploy — HTML validation, CSS linting, and a broken-link scan. All must pass before deploy runs.</p>
               <div class="pipeline-card-tags">
                 <span class="tag tag-sm tag-accent">CI Checks</span>
-                <span class="tag tag-sm">Linting</span>
+                <span class="tag tag-sm">Stylelint</span>
+                <span class="tag tag-sm">Lychee</span>
               </div>
-              <span class="placeholder-label"><i class="fas fa-code-branch fa-xs"></i> Coming soon</span>
+              <div class="check-list">
+                <div class="check-item">
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span class="check-label">HTML validation</span>
+                  <span class="check-tool">html-validate</span>
+                </div>
+                <div class="check-item">
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span class="check-label">CSS linting</span>
+                  <span class="check-tool">stylelint</span>
+                </div>
+                <div class="check-item">
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span class="check-label">Broken links</span>
+                  <span class="check-tool">lychee</span>
+                </div>
+              </div>
+              <a href="https://github.com/gundyn/portfolio/actions/workflows/deploy.yml"
+                target="_blank" rel="noopener" class="pipeline-badge-link">
+                <img src="https://github.com/gundyn/portfolio/actions/workflows/deploy.yml/badge.svg"
+                    alt="Build status" class="pipeline-badge" />
+              </a>
             </article>
 
             <article class="pipeline-card">
               <div class="pipeline-card-label">Stage 03 — Delivery</div>
               <h3 class="pipeline-card-title">Deploy to Pages + Cloudflare</h3>
-              <p class="pipeline-card-desc">Automated deployment to GitHub Pages with Cloudflare handling DNS, caching, and edge delivery — zero manual steps.</p>
+              <p class="pipeline-card-desc">Once all checks pass, automated deployment to GitHub Pages with Cloudflare handling DNS, caching, and edge delivery — zero manual steps.</p>
               <div class="pipeline-card-tags">
                 <span class="tag tag-sm tag-accent">GitHub Pages</span>
                 <span class="tag tag-sm">Cloudflare</span>
               </div>
-              <span class="placeholder-label"><i class="fas fa-code-branch fa-xs"></i> Coming soon</span>
+              <div class="code-snippet">
+                <div class="code-snippet-header">
+                  <span class="code-snippet-file"><i class="fas fa-rocket fa-xs"></i> deploy job</span>
+                  <a href="https://github.com/gundyn/portfolio/actions" target="_blank" rel="noopener" class="code-snippet-link">View runs <i class="fas fa-arrow-up-right-from-square fa-xs"></i></a>
+                </div>
+                <pre class="code-block"><code>deploy:
+  needs:
+    - validate-html
+    - lint-css
+    - check-links
+  steps:
+    - uses: actions/checkout@v4
+    - uses: peaceiris/
+        actions-gh-pages@v3</code></pre>
+              </div>
             </article>
 
           </div>
-        </div>
-      </section>
-
       <!-- ===================== FOOTER / CONNECT ===================== -->
       <footer class="site-footer hidden fade" id="connect">
         <div class="container">
