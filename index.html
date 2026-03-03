@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5305313468750724" crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-5305313468750724">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <!-- Bootstrap first so our styles override it -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
     <link rel="stylesheet" href="style.css" />
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/0e73b3830e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ56E7YBE0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -22,16 +21,15 @@
       gtag('js', new Date());
       gtag('config', 'G-BJ56E7YBE0');
     </script>
+
     <link rel="icon" href="./Images/tree-of-life.png">
     <title>Nathan T. Gundy — Manager, Change & Release</title>
-    <meta name="description" content="Nathan T. Gundy — Manager, Change & Release / Release Engineer with 5+ years specializing in CI/CD, Python automation, and GitHub Actions." />
+    <meta name="description" content="Nathan T. Gundy — Manager, Change & Release / Release Engineer specializing in CI/CD, Python automation, and GitHub Actions." />
     <meta name="cf-2fa-verify" value="*#0#dZY5<OHKLFoA!7VV" />
   </head>
   <body>
 
-    <!-- Skip nav -->
     <a id="skip-nav" class="screenreader-text" href="#main-content">Skip to Content</a>
-
 
     <!-- ===================== NAV ===================== -->
     <header class="site-header">
@@ -76,7 +74,7 @@
       </section>
 
       <!-- ===================== ABOUT ===================== -->
-      <section class="section about-section hidden fade" id="about">
+      <section class="section hidden fade" id="about">
         <div class="container">
           <div class="section-label">01 / About</div>
           <div class="row g-5 align-items-start">
@@ -97,11 +95,11 @@
                 </div>
                 <div class="stat-item">
                   <span class="stat-number">CI/CD</span>
-                  <span class="stat-label">Pipeline design & automation</span>
+                  <span class="stat-label">Pipeline design &amp; automation</span>
                 </div>
                 <div class="stat-item">
                   <span class="stat-number">Python</span>
-                  <span class="stat-label">Scripting & tooling</span>
+                  <span class="stat-label">Scripting &amp; tooling</span>
                 </div>
                 <div class="stat-item">
                   <span class="stat-number">Nashville, TN</span>
@@ -119,95 +117,81 @@
           <div class="section-label">02 / Pipeline &amp; Automation</div>
           <h2 class="section-heading">This site ships itself.</h2>
 
+          <!-- Flow diagram -->
           <div class="pipeline-diagram">
             <div class="pipeline-flow">
 
               <div class="pipeline-stage">
                 <div class="stage-node active">
-                  <div class="stage-status passing"></div>
-                  <div class="stage-icon"><i class="fab fa-github"></i></div>
-                  <div class="stage-name">Push</div>
-                  <div class="stage-sub">git push origin main</div>
+                  <span class="stage-status passing"></span>
+                  <span class="stage-icon"><i class="fab fa-github"></i></span>
+                  <span class="stage-name">Push</span>
+                  <span class="stage-sub">git push origin main</span>
                 </div>
               </div>
 
               <div class="pipeline-arrow">
-                <svg viewBox="0 0 24 12">
-                  <line class="arrow-line" x1="0" y1="6" x2="20" y2="6"/>
-                  <polyline points="14,2 20,6 14,10" stroke="var(--border-light)" stroke-width="1.5" fill="none"/>
-                </svg>
+                <svg viewBox="0 0 20 10"><line class="arrow-line" x1="0" y1="5" x2="16" y2="5"/><polyline points="11,1 17,5 11,9" stroke="var(--border-light)" stroke-width="1.5" fill="none"/></svg>
               </div>
 
               <div class="pipeline-stage">
                 <div class="stage-node active">
-                  <div class="stage-status passing"></div>
-                  <div class="stage-icon"><i class="fas fa-bolt"></i></div>
-                  <div class="stage-name">Trigger</div>
-                  <div class="stage-sub">GitHub Actions</div>
+                  <span class="stage-status passing"></span>
+                  <span class="stage-icon"><i class="fas fa-bolt"></i></span>
+                  <span class="stage-name">Trigger</span>
+                  <span class="stage-sub">GitHub Actions</span>
                 </div>
               </div>
 
               <div class="pipeline-arrow">
-                <svg viewBox="0 0 24 12">
-                  <line class="arrow-line" x1="0" y1="6" x2="20" y2="6"/>
-                  <polyline points="14,2 20,6 14,10" stroke="var(--border-light)" stroke-width="1.5" fill="none"/>
-                </svg>
+                <svg viewBox="0 0 20 10"><line class="arrow-line" x1="0" y1="5" x2="16" y2="5"/><polyline points="11,1 17,5 11,9" stroke="var(--border-light)" stroke-width="1.5" fill="none"/></svg>
               </div>
 
               <div class="pipeline-stage">
                 <div class="stage-node">
-                  <div class="stage-status pending"></div>
-                  <div class="stage-icon"><i class="fas fa-hammer"></i></div>
-                  <div class="stage-name">Build</div>
-                  <div class="stage-sub">Lint &amp; compile</div>
+                  <span class="stage-status pending"></span>
+                  <span class="stage-icon"><i class="fas fa-hammer"></i></span>
+                  <span class="stage-name">Build</span>
+                  <span class="stage-sub">Lint &amp; compile</span>
                 </div>
               </div>
 
               <div class="pipeline-arrow">
-                <svg viewBox="0 0 24 12">
-                  <line class="arrow-line" x1="0" y1="6" x2="20" y2="6"/>
-                  <polyline points="14,2 20,6 14,10" stroke="var(--border-light)" stroke-width="1.5" fill="none"/>
-                </svg>
+                <svg viewBox="0 0 20 10"><line class="arrow-line" x1="0" y1="5" x2="16" y2="5"/><polyline points="11,1 17,5 11,9" stroke="var(--border-light)" stroke-width="1.5" fill="none"/></svg>
               </div>
 
               <div class="pipeline-stage">
                 <div class="stage-node">
-                  <div class="stage-status pending"></div>
-                  <div class="stage-icon"><i class="fas fa-vial"></i></div>
-                  <div class="stage-name">Test</div>
-                  <div class="stage-sub">Automated checks</div>
+                  <span class="stage-status pending"></span>
+                  <span class="stage-icon"><i class="fas fa-vial"></i></span>
+                  <span class="stage-name">Test</span>
+                  <span class="stage-sub">Automated checks</span>
                 </div>
               </div>
 
               <div class="pipeline-arrow">
-                <svg viewBox="0 0 24 12">
-                  <line class="arrow-line" x1="0" y1="6" x2="20" y2="6"/>
-                  <polyline points="14,2 20,6 14,10" stroke="var(--border-light)" stroke-width="1.5" fill="none"/>
-                </svg>
+                <svg viewBox="0 0 20 10"><line class="arrow-line" x1="0" y1="5" x2="16" y2="5"/><polyline points="11,1 17,5 11,9" stroke="var(--border-light)" stroke-width="1.5" fill="none"/></svg>
               </div>
 
               <div class="pipeline-stage">
                 <div class="stage-node">
-                  <div class="stage-status pending"></div>
-                  <div class="stage-icon"><i class="fas fa-rocket"></i></div>
-                  <div class="stage-name">Deploy</div>
-                  <div class="stage-sub">GitHub Pages</div>
+                  <span class="stage-status pending"></span>
+                  <span class="stage-icon"><i class="fas fa-rocket"></i></span>
+                  <span class="stage-name">Deploy</span>
+                  <span class="stage-sub">GitHub Pages</span>
                 </div>
               </div>
 
               <div class="pipeline-arrow">
-                <svg viewBox="0 0 24 12">
-                  <line class="arrow-line" x1="0" y1="6" x2="20" y2="6"/>
-                  <polyline points="14,2 20,6 14,10" stroke="var(--border-light)" stroke-width="1.5" fill="none"/>
-                </svg>
+                <svg viewBox="0 0 20 10"><line class="arrow-line" x1="0" y1="5" x2="16" y2="5"/><polyline points="11,1 17,5 11,9" stroke="var(--border-light)" stroke-width="1.5" fill="none"/></svg>
               </div>
 
               <div class="pipeline-stage">
                 <div class="stage-node">
-                  <div class="stage-status pending"></div>
-                  <div class="stage-icon"><i class="fas fa-shield-halved"></i></div>
-                  <div class="stage-name">Live</div>
-                  <div class="stage-sub">Cloudflare CDN</div>
+                  <span class="stage-status pending"></span>
+                  <span class="stage-icon"><i class="fas fa-shield-halved"></i></span>
+                  <span class="stage-name">Live</span>
+                  <span class="stage-sub">Cloudflare CDN</span>
                 </div>
               </div>
 
@@ -224,6 +208,7 @@
             </div>
           </div>
 
+          <!-- Cards -->
           <div class="pipeline-cards">
 
             <article class="pipeline-card">
@@ -269,14 +254,14 @@
           <div class="footer-inner">
             <div class="footer-left">
               <p class="footer-tagline">Let's build something reliable.</p>
-              <a href="/cdn-cgi/l/email-protection#0d636c79656c63236a786369744d6a606c6461236e6260" class="footer-email"><span class="__cf_email__" data-cfemail="0967687d616867276e7c676d70496e64686065276a6664">[email&#160;protected]</span></a>
+              <a href="mailto:nathan.gundy@gmail.com" class="footer-email">nathan.gundy@gmail.com</a>
             </div>
             <div class="footer-right">
               <div class="footer-socials">
                 <a href="https://www.linkedin.com/in/nathangundy/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/gundyn" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 <a href="https://codepen.io/gundyn" aria-label="CodePen" target="_blank" rel="noopener"><i class="fab fa-codepen"></i></a>
-                <a href="/cdn-cgi/l/email-protection#a2ccc3d6cac3cc8cc5d7ccc6dbe2c5cfc3cbce8cc1cdcf" aria-label="Email"><i class="far fa-envelope"></i></a>
+                <a href="mailto:nathan.gundy@gmail.com" aria-label="Email"><i class="far fa-envelope"></i></a>
               </div>
               <p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> Nathan T. Gundy</p>
             </div>
@@ -286,9 +271,8 @@
 
     </main>
 
-    <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="src/js/page_load_scroll_animation.js"></script>
+
     <script>
       // Mobile nav toggle
       const toggle = document.querySelector('.nav-toggle');
@@ -320,5 +304,6 @@
       }, { threshold: 0.1 });
       document.querySelectorAll('.hidden.fade').forEach(el => observer.observe(el));
     </script>
+
   </body>
 </html>
