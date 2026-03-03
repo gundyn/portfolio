@@ -42,22 +42,26 @@
           '<strong>' + info.title + '</strong>' +
           '<p>' + info.detail + '</p>';
         
-        // Prevent edge clipping for first node
+        // Prevent edge clipping for first and last node
         if (index === 0) {
-          tooltip.style.left = '0';
-          tooltip.style.transform = 'translateX(0) translateY(4px)';
+            tooltip.style.left = '0';
+            tooltip.style.transform = 'translateX(0) translateY(4px)';
+        } else if (index === nodes.length - 1) {
+            tooltip.style.left = 'auto';
+            tooltip.style.right = '0';
+            tooltip.style.transform = 'translateX(0) translateY(4px)';
         }
         
         node.appendChild(tooltip);
         
         // Animate in
         requestAnimationFrame(function () {
-          if (index === 0) {
+            if (index === 0 || index === nodes.length - 1) {
             tooltip.style.transform = 'translateX(0) translateY(0)';
             tooltip.style.opacity = '1';
-          } else {
+            } else {
             tooltip.classList.add('stage-tooltip--visible');
-          }
+            }
         });
       });
     });
@@ -105,11 +109,16 @@
   
             // After last node
             if (index === nodes.length - 1) {
-              setTimeout(function () {
-                btn.disabled = false;
-                btn.textContent = 'Simulate run';
-              }, 800);
-            }
+                setTimeout(function () {
+                  nodes.forEach(function (n) {
+                    n.classList.remove('active');
+                    const s = n.querySelector('.stage-status');
+                    if (s) { s.className = 'stage-status pending'; }
+                  });
+                  btn.disabled = false;
+                  btn.textContent = 'Simulate run';
+                }, 1500);
+              }
           }, index * 600);
         });
       });
