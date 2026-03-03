@@ -41,27 +41,31 @@
         tooltip.innerHTML =
           '<strong>' + info.title + '</strong>' +
           '<p>' + info.detail + '</p>';
-        
+
         // Prevent edge clipping for first and last node
         if (index === 0) {
-            tooltip.style.left = '0';
-            tooltip.style.transform = 'translateX(0) translateY(4px)';
+          tooltip.style.left = '0';
+          tooltip.style.right = 'auto';
+          tooltip.style.transform = 'translateX(0) translateY(4px)';
         } else if (index === nodes.length - 1) {
-            tooltip.style.left = 'auto';
-            tooltip.style.right = '0';
-            tooltip.style.transform = 'translateX(0) translateY(4px)';
+          tooltip.style.left = 'auto';
+          tooltip.style.right = '0';
+          tooltip.style.transform = 'translateX(0) translateY(4px)';
         }
-        
+
         node.appendChild(tooltip);
-        
-        // Animate in
+
+        // Double rAF ensures element is painted before transition fires
         requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
             if (index === 0 || index === nodes.length - 1) {
-            tooltip.style.transform = 'translateX(0) translateY(0)';
-            tooltip.style.opacity = '1';
+              tooltip.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+              tooltip.style.transform = 'translateX(0) translateY(0)';
+              tooltip.style.opacity = '1';
             } else {
-            tooltip.classList.add('stage-tooltip--visible');
+              tooltip.classList.add('stage-tooltip--visible');
             }
+          });
         });
       });
     });
