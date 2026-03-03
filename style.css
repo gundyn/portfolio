@@ -692,9 +692,6 @@
 	border-radius: 100px;
 	margin-top: 8px;
   }
-  /* ============================================================
-   ADD THIS to style.css inside section 7 (Pipeline)
-   ============================================================ */
 
 /* --- Code Snippet Block --- */
 .code-snippet {
@@ -824,6 +821,101 @@
   .pipeline-badge {
 	height: 20px;
 	border-radius: 3px;
+  }
+
+/* --- Stage node tooltips --- */
+.stage-node {
+	cursor: pointer;
+  }
+  
+  .stage-tooltip {
+	position: absolute;
+	top: calc(100% + 10px);
+	left: 50%;
+	transform: translateX(-50%) translateY(4px);
+	background: var(--bg-card-hover);
+	border: 1px solid var(--border-light);
+	border-radius: var(--radius);
+	padding: 10px 14px;
+	width: 200px;
+	z-index: 100;
+	opacity: 0;
+	transition: opacity var(--transition), transform var(--transition);
+	pointer-events: none;
+	text-align: left;
+  }
+  
+  .stage-tooltip--visible {
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
+  }
+  
+  .stage-tooltip strong {
+	display: block;
+	font-family: var(--font-display);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: var(--accent);
+	margin-bottom: 6px;
+  }
+  
+  .stage-tooltip p {
+	font-size: 0.72rem;
+	color: var(--text-secondary);
+	line-height: 1.5;
+	margin: 0;
+  }
+  
+  /* --- Simulate run button --- */
+  .pipeline-simulate-btn {
+	font-family: var(--font-display);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--text-secondary);
+	background: none;
+	border: 1px solid var(--border-light);
+	border-radius: 100px;
+	padding: 5px 14px;
+	cursor: pointer;
+	transition: color var(--transition), border-color var(--transition);
+  }
+  
+  .pipeline-simulate-btn:hover {
+	color: var(--accent);
+	border-color: var(--accent);
+  }
+  
+  .pipeline-simulate-btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+  }
+  
+  /* --- Stage node active transition --- */
+  .stage-node {
+	transition: border-color var(--transition), background var(--transition), transform var(--transition);
+  }
+  
+  .stage-node:hover {
+	transform: translateY(-2px);
+  }
+  
+  .stage-node.active {
+	border-color: rgb(77 158 255 / 40%);
+	background: var(--accent-dim);
+  }
+  
+  /* --- Pipeline card hover lift --- */
+  .pipeline-card {
+	transition: background var(--transition-slow), transform var(--transition-slow);
+  }
+  
+  .pipeline-card:hover {
+	background: var(--bg-card-hover);
+	transform: translateY(-2px);
   }
   
   
