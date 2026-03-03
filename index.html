@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap first so our styles override it -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ56E7YBE0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BJ56E7YBE0');
+    </script>
+
+    <link rel="icon" href="./Images/tree-of-life.png">
+    <title>Nathan T. Gundy — Manager, Change & Release</title>
+    <meta name="description" content="Nathan T. Gundy — Manager, Change & Release / Release Engineer specializing in CI/CD, Python automation, and GitHub Actions." />
+    <meta name="cf-2fa-verify" value="*#0#dZY5<OHKLFoA!7VV" />
+  </head>
+  <body>
+
+    <a id="skip-nav" class="screenreader-text" href="#main-content">Skip to Content</a>
+
+    <!-- ===================== NAV ===================== -->
+    <header class="site-header">
+      <nav class="site-nav container" aria-label="Main navigation">
+        <a class="nav-logo" href="#">NTG</a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#pipeline">Pipeline</a></li>
+          <li><a href="#connect">Connect</a></li>
+          <li><a class="nav-cta" href="files/Nathan_Gundy_Resume.pdf" download>Resume <i class="fas fa-arrow-down fa-xs"></i></a></li>
+        </ul>
+        <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="main-content">
+
+      <!-- ===================== HERO ===================== -->
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-eyebrow">
+            <span class="status-dot"></span>
+            <span>Available for opportunities</span>
+          </div>
+          <h1 class="hero-name">Nathan<br>T. Gundy</h1>
+          <p class="hero-title">Manager, Change &amp; Release <span class="accent-slash">/</span> Release Engineer</p>
+          <p class="hero-sub">Building reliable processes that keep software moving.</p>
+          <div class="hero-actions">
+            <a href="files/Nathan_Gundy_Resume.pdf" download class="btn-outline">
+              <i class="fas fa-arrow-down fa-xs"></i> Download Resume
+            </a>
+            <a href="https://github.com/gundyn" target="_blank" rel="noopener" class="btn-ghost">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/nathangundy/" target="_blank" rel="noopener" class="btn-ghost">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== ABOUT ===================== -->
+      <section class="section hidden fade" id="about">
+        <div class="container">
+          <div class="section-label">01 / About</div>
+          <div class="row g-5 align-items-start">
+            <div class="col-lg-7">
+              <h2 class="section-heading">I make deployments predictable — not panic-inducing.</h2>
+              <p class="about-body">
+                I'm a Manager of Change &amp; Release with 5+ years leading cross-functional software delivery teams. My work sits at the intersection of engineering and operations — designing the pipelines, governance frameworks, and automation tooling that give teams confidence to ship.
+              </p>
+              <p class="about-body">
+                I came up through software engineering and technical support before moving into release, which means I can work with engineering teams rather than around them. I've built CI/CD systems from scratch, reduced post-release incidents through disciplined process design, and written the automation that removed the manual toil from delivery.
+              </p>
+            </div>
+            <div class="col-lg-4 offset-lg-1">
+              <div class="about-stats">
+                <div class="stat-item">
+                  <span class="stat-number">5+</span>
+                  <span class="stat-label">Years in tech industry</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">CI/CD</span>
+                  <span class="stat-label">Pipeline design &amp; automation</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">Python</span>
+                  <span class="stat-label">Scripting &amp; tooling</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">Nashville, TN</span>
+                  <span class="stat-label">Based in</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== PIPELINE ===================== -->
+      <section class="section hidden fade" id="pipeline">
+        <div class="container">
+          <div class="section-label">02 / Pipeline &amp; Automation</div>
+          <h2 class="section-heading">This site ships itself.</h2>
+
+          <!-- Flow diagram -->
+          <div class="pipeline-diagram">
+            <div class="pipeline-flow">
+
+              <div class="pipeline-stage">
+                <div class="stage-node active">
+                  <span class="stage-status passing"></span>
+                  <span class="stage-icon"><i class="fab fa-github"></i></span>
+                  <span class="stage-name">Push</span>
+                  <span class="stage-sub">git push origin main</span>
+                </div>
+              </div>
+
+              <div class="pipeline-arrow">
+                <svg viewBox="0 0 20 10"><line class="arrow-line" x1="0" y1="5" x2="16" y2="5"/><polyline points="11,1 17,5 11,9" stroke="var(--border-light)" stroke-width="1.5" fill="none"/></svg>
+              </div>
+
+              <div class="pipeline-stage">
+                <div class="stage-node active">
+                  <span class="stage-status passing"></span>
+                  <span class="stage-icon"><i class="fas fa-bolt"></i></span>
+                  <span class="stage-name">Trigger</span>
+                  <span class="stage-sub">GitHub Actions</span>
+                </div>
+              </div>
+
+              <div class="pipeline-arrow">
+                <svg viewBox="0 0 20 10"><line class="arrow-line" x1="0" y1="5" x2="16" y2="5"/><polyline points="11,1 17,5 11,9" stroke="var(--border-light)" stroke-width="1.5" fill="none"/></svg>
+              </div>
+
+              <div class="pipeline-stage">
+                <div class="stage-node">
+                  <span class="stage-status pending"></span>
+                  <span class="stage-icon"><i class="fas fa-hammer"></i></span>
+                  <span class="stage-name">Build</span>
+                  <span class="stage-sub">Lint &amp; compile</span>
+                </div>
+              </div>
+
+              <div class="pipeline-arrow">
+                <svg viewBox="0 0 20 10"><line class="arrow-line" x1="0" y1="5" x2="16" y2="5"/><polyline points="11,1 17,5 11,9" stroke="var(--border-light)" stroke-width="1.5" fill="none"/></svg>
+              </div>
+
+              <div class="pipeline-stage">
+                <div class="stage-node">
+                  <span class="stage-status pending"></span>
+                  <span class="stage-icon"><i class="fas fa-vial"></i></span>
+                  <span class="stage-name">Test</span>
+                  <span class="stage-sub">Automated checks</span>
+                </div>
+              </div>
+
+              <div class="pipeline-arrow">
+                <svg viewBox="0 0 20 10"><line class="arrow-line" x1="0" y1="5" x2="16" y2="5"/><polyline points="11,1 17,5 11,9" stroke="var(--border-light)" stroke-width="1.5" fill="none"/></svg>
+              </div>
+
+              <div class="pipeline-stage">
+                <div class="stage-node">
+                  <span class="stage-status pending"></span>
+                  <span class="stage-icon"><i class="fas fa-rocket"></i></span>
+                  <span class="stage-name">Deploy</span>
+                  <span class="stage-sub">GitHub Pages</span>
+                </div>
+              </div>
+
+              <div class="pipeline-arrow">
+                <svg viewBox="0 0 20 10"><line class="arrow-line" x1="0" y1="5" x2="16" y2="5"/><polyline points="11,1 17,5 11,9" stroke="var(--border-light)" stroke-width="1.5" fill="none"/></svg>
+              </div>
+
+              <div class="pipeline-stage">
+                <div class="stage-node">
+                  <span class="stage-status pending"></span>
+                  <span class="stage-icon"><i class="fas fa-shield-halved"></i></span>
+                  <span class="stage-name">Live</span>
+                  <span class="stage-sub">Cloudflare CDN</span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="pipeline-meta">
+              <span class="live-badge">
+                <span class="live-dot"></span>
+                Live pipeline
+              </span>
+              <a href="https://github.com/gundyn/portfolio/actions" target="_blank" rel="noopener" class="pipeline-link">
+                View runs on GitHub <i class="fas fa-arrow-up-right-from-square fa-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Cards -->
+          <div class="pipeline-cards">
+
+            <article class="pipeline-card">
+              <div class="pipeline-card-label">Stage 01 — Trigger</div>
+              <h3 class="pipeline-card-title">GitHub Actions Workflow</h3>
+              <p class="pipeline-card-desc">Listens for every push to <code class="inline-code">main</code> and kicks off the full build-test-deploy sequence automatically.</p>
+              <div class="pipeline-card-tags">
+                <span class="tag tag-sm tag-accent">GitHub Actions</span>
+                <span class="tag tag-sm">YAML</span>
+              </div>
+              <div class="code-snippet">
+                <div class="code-snippet-header">
+                  <span class="code-snippet-file"><i class="fas fa-file-code fa-xs"></i> deploy.yml</span>
+                  <a href="https://github.com/gundyn/portfolio/blob/main/.github/workflows/deploy.yml" target="_blank" rel="noopener" class="code-snippet-link">View <i class="fas fa-arrow-up-right-from-square fa-xs"></i></a>
+                </div>
+                <pre class="code-block"><code>on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate-html:
+  lint-css:
+  check-links:
+  deploy:
+    needs: [validate-html,
+            lint-css,
+            check-links]</code></pre>
+              </div>
+            </article>
+
+            <article class="pipeline-card">
+              <div class="pipeline-card-label">Stage 02 — Quality</div>
+              <h3 class="pipeline-card-title">Automated Checks</h3>
+              <p class="pipeline-card-desc">Three parallel jobs gate every deploy — HTML validation, CSS linting, and a broken-link scan. All must pass before deploy runs.</p>
+              <div class="pipeline-card-tags">
+                <span class="tag tag-sm tag-accent">CI Checks</span>
+                <span class="tag tag-sm">Stylelint</span>
+                <span class="tag tag-sm">Lychee</span>
+              </div>
+              <div class="check-list">
+                <div class="check-item">
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span class="check-label">HTML validation</span>
+                  <span class="check-tool">html-validate</span>
+                </div>
+                <div class="check-item">
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span class="check-label">CSS linting</span>
+                  <span class="check-tool">stylelint</span>
+                </div>
+                <div class="check-item">
+                  <span class="check-icon"><i class="fas fa-check"></i></span>
+                  <span class="check-label">Broken links</span>
+                  <span class="check-tool">lychee</span>
+                </div>
+              </div>
+              <a href="https://github.com/gundyn/portfolio/actions/workflows/deploy.yml"
+                target="_blank" rel="noopener" class="pipeline-badge-link">
+                <img src="https://github.com/gundyn/portfolio/actions/workflows/deploy.yml/badge.svg"
+                    alt="Build status" class="pipeline-badge" />
+              </a>
+            </article>
+
+            <article class="pipeline-card">
+              <div class="pipeline-card-label">Stage 03 — Delivery</div>
+              <h3 class="pipeline-card-title">Deploy to Pages + Cloudflare</h3>
+              <p class="pipeline-card-desc">Once all checks pass, automated deployment to GitHub Pages with Cloudflare handling DNS, caching, and edge delivery — zero manual steps.</p>
+              <div class="pipeline-card-tags">
+                <span class="tag tag-sm tag-accent">GitHub Pages</span>
+                <span class="tag tag-sm">Cloudflare</span>
+              </div>
+              <div class="code-snippet">
+                <div class="code-snippet-header">
+                  <span class="code-snippet-file"><i class="fas fa-rocket fa-xs"></i> deploy job</span>
+                  <a href="https://github.com/gundyn/portfolio/actions" target="_blank" rel="noopener" class="code-snippet-link">View runs <i class="fas fa-arrow-up-right-from-square fa-xs"></i></a>
+                </div>
+                <pre class="code-block"><code>deploy:
+  needs:
+    - validate-html
+    - lint-css
+    - check-links
+  steps:
+    - uses: actions/checkout@v4
+    - uses: peaceiris/
+        actions-gh-pages@v3</code></pre>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+      <!-- ===================== FOOTER / CONNECT ===================== -->
+      <footer class="site-footer hidden fade" id="connect">
+        <div class="container">
+          <div class="footer-inner">
+            <div class="footer-left">
+              <p class="footer-tagline">Let's build something reliable.</p>
+              <a href="mailto:nathan.gundy@gmail.com" class="footer-email">nathan.gundy@gmail.com</a>
+            </div>
+            <div class="footer-right">
+              <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/nathangundy/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/gundyn" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                <a href="https://codepen.io/gundyn" aria-label="CodePen" target="_blank" rel="noopener"><i class="fab fa-codepen"></i></a>
+                <a href="mailto:nathan.gundy@gmail.com" aria-label="Email"><i class="far fa-envelope"></i></a>
+              </div>
+              <p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> Nathan T. Gundy</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script>
+      // Mobile nav toggle
+      const toggle = document.querySelector('.nav-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', !expanded);
+          navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // Shrink header on scroll
+      window.addEventListener('scroll', () => {
+        document.querySelector('.site-header').classList.toggle('scrolled', window.scrollY > 50);
+      });
+
+      // Scroll reveal
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('show');
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.hidden.fade').forEach(el => observer.observe(el));
+    </script>
+
+  </body>
+</html>
