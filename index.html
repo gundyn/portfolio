@@ -276,26 +276,52 @@ jobs:
             <article class="pipeline-card">
               <div class="pipeline-card-label">Stage 03 — Delivery</div>
               <h3 class="pipeline-card-title">Deploy to Pages + Cloudflare</h3>
-              <p class="pipeline-card-desc">Once all checks pass, automated deployment to GitHub Pages with Cloudflare handling DNS, caching, and edge delivery — zero manual steps.</p>
+              <p class="pipeline-card-desc">GitHub Pages is the origin. Cloudflare sits in front — handling DNS, SSL termination, edge caching, and DDoS protection before a request ever reaches GitHub.</p>
               <div class="pipeline-card-tags">
                 <span class="tag tag-sm tag-accent">GitHub Pages</span>
                 <span class="tag tag-sm">Cloudflare</span>
+                <span class="tag tag-sm">SSL/TLS</span>
               </div>
-              <div class="code-snippet">
-                <div class="code-snippet-header">
-                  <span class="code-snippet-file"><i class="fas fa-rocket fa-xs"></i> deploy job</span>
-                  <a href="https://github.com/gundyn/portfolio/actions" target="_blank" rel="noopener" class="code-snippet-link">View runs <i class="fas fa-arrow-up-right-from-square fa-xs"></i></a>
+
+              <div class="cf-flow">
+                <div class="cf-flow-step">
+                  <span class="cf-flow-icon"><i class="fas fa-user"></i></span>
+                  <span class="cf-flow-label">Visitor</span>
                 </div>
-                <pre class="code-block"><code>deploy:
-  needs:
-    - validate-html
-    - lint-css
-    - check-links
-  steps:
-    - uses: actions/checkout@v4
-    - uses: peaceiris/
-        actions-gh-pages@v3</code></pre>
+                <div class="cf-flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="cf-flow-step cf-flow-step--accent">
+                  <span class="cf-flow-icon"><i class="fas fa-shield-halved"></i></span>
+                  <span class="cf-flow-label">Cloudflare<br>Edge</span>
+                </div>
+                <div class="cf-flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="cf-flow-step">
+                  <span class="cf-flow-icon"><i class="fab fa-github"></i></span>
+                  <span class="cf-flow-label">GitHub<br>Pages</span>
+                </div>
               </div>
+
+              <div class="cf-details">
+                <div class="cf-detail-item">
+                  <span class="cf-detail-icon"><i class="fas fa-check-circle"></i></span>
+                  <span class="cf-detail-text">DNS proxied — traffic routes through Cloudflare, not directly to origin</span>
+                </div>
+                <div class="cf-detail-item">
+                  <span class="cf-detail-icon"><i class="fas fa-check-circle"></i></span>
+                  <span class="cf-detail-text">SSL/TLS full encryption — certificate managed at the edge</span>
+                </div>
+                <div class="cf-detail-item">
+                  <span class="cf-detail-icon"><i class="fas fa-check-circle"></i></span>
+                  <span class="cf-detail-text">Static assets cached globally — reduced latency, origin protected</span>
+                </div>
+                <div class="cf-detail-item">
+                  <span class="cf-detail-icon"><i class="fas fa-check-circle"></i></span>
+                  <span class="cf-detail-text">Always Online — cached version served if origin is unavailable</span>
+                </div>
+              </div>
+
+              <a href="https://github.com/gundyn/portfolio/actions" target="_blank" rel="noopener" class="code-snippet-link" style="margin-top: 4px;">
+                View deploy runs <i class="fas fa-arrow-up-right-from-square fa-xs"></i>
+              </a>
             </article>
 
           </div>
