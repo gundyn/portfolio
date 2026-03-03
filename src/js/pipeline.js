@@ -43,17 +43,37 @@
           '<p>' + info.detail + '</p>';
 
         // Prevent edge clipping for first and last node
+        const rect = node.getBoundingClientRect();
+        tooltip.style.position = 'fixed';
+        tooltip.style.top = (rect.bottom + 10) + 'px';
+        tooltip.style.width = '200px';
+        tooltip.style.transform = 'translateY(4px)';
+
         if (index === 0) {
-          tooltip.style.left = '0';
-          tooltip.style.right = 'auto';
-          tooltip.style.transform = 'translateX(0) translateY(4px)';
+          tooltip.style.left = rect.left + 'px';
         } else if (index === nodes.length - 1) {
-          tooltip.style.left = 'auto';
-          tooltip.style.right = '0';
-          tooltip.style.transform = 'translateX(0) translateY(4px)';
+          tooltip.style.right = (window.innerWidth - rect.right) + 'px';
+        } else {
+          tooltip.style.left = (rect.left + rect.width / 2) + 'px';
+          tooltip.style.transform = 'translateX(-50%) translateY(4px)';
         }
 
-        node.appendChild(tooltip);
+        document.body.appendChild(tooltip);
+
+        // Double rAF ensures element is painted before transition fires
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            tooltip.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+            tooltip.style.opacity = '1';
+            if (index > 0 && index < nodes.length - 1) {
+              tooltip.style.transform = 'translateX(-50%) translateY(0)';
+            } else {
+              tooltip.style.transform = 'translateY(0)';
+            }
+          });
+        });
+      });
+    });
 
         // Double rAF ensures element is painted before transition fires
         requestAnimationFrame(function () {
