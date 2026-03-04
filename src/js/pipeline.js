@@ -30,6 +30,7 @@
           t.remove();
         });
   
+        // If we just removed one that was on this node, bail out (toggle off)
         const existing = node.querySelector('.stage-tooltip');
         if (existing) return;
   
@@ -41,49 +42,45 @@
         tooltip.innerHTML =
           '<strong>' + info.title + '</strong>' +
           '<p>' + info.detail + '</p>';
-
-        // Prevent edge clipping for first and last node
+  
+        // Start hidden and slightly shifted down for the fade-in
+        tooltip.style.position   = 'fixed';
+        tooltip.style.width      = '200px';
+        tooltip.style.opacity    = '0';
+        tooltip.style.zIndex     = '1000';
+  
         const rect = node.getBoundingClientRect();
-        tooltip.style.position = 'fixed';
-        tooltip.style.top = (rect.bottom + 10) + 'px';
-        tooltip.style.width = '200px';
-        tooltip.style.transform = 'translateY(4px)';
-
+        const TOP  = rect.bottom + 10;
+  
         if (index === 0) {
-          tooltip.style.left = rect.left + 'px';
+          // First node — anchor to left edge, no transform needed
+          tooltip.style.top       = TOP + 'px';
+          tooltip.style.left      = rect.left + 'px';
+          tooltip.style.transform = 'translateY(8px)';
         } else if (index === nodes.length - 1) {
-          tooltip.style.right = (window.innerWidth - rect.right) + 'px';
+          // Last node — anchor to right edge so it never clips off-screen
+          tooltip.style.top       = TOP + 'px';
+          tooltip.style.right     = (window.innerWidth - rect.right) + 'px';
+          tooltip.style.transform = 'translateY(8px)';
         } else {
-          tooltip.style.left = (rect.left + rect.width / 2) + 'px';
-          tooltip.style.transform = 'translateX(-50%) translateY(4px)';
+          // Middle nodes — center under the node
+          tooltip.style.top       = TOP + 'px';
+          tooltip.style.left      = (rect.left + rect.width / 2) + 'px';
+          tooltip.style.transform = 'translateX(-50%) translateY(8px)';
         }
-
+  
         document.body.appendChild(tooltip);
-
+  
         // Double rAF ensures element is painted before transition fires
         requestAnimationFrame(function () {
           requestAnimationFrame(function () {
             tooltip.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-            tooltip.style.opacity = '1';
-            if (index > 0 && index < nodes.length - 1) {
-              tooltip.style.transform = 'translateX(-50%) translateY(0)';
-            } else {
-              tooltip.style.transform = 'translateY(0)';
-            }
-          });
-        });
-      });
-    });
-
-        // Double rAF ensures element is painted before transition fires
-        requestAnimationFrame(function () {
-          requestAnimationFrame(function () {
+            tooltip.style.opacity    = '1';
+  
             if (index === 0 || index === nodes.length - 1) {
-              tooltip.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-              tooltip.style.transform = 'translateX(0) translateY(0)';
-              tooltip.style.opacity = '1';
+              tooltip.style.transform = 'translateY(0)';
             } else {
-              tooltip.classList.add('stage-tooltip--visible');
+              tooltip.style.transform = 'translateX(-50%) translateY(0)';
             }
           });
         });
@@ -103,14 +100,14 @@
     const meta = document.querySelector('.pipeline-meta');
     if (meta) {
       const btn = document.createElement('button');
-      btn.type = 'button';
+      btn.type      = 'button';
       btn.className = 'pipeline-simulate-btn';
       btn.textContent = 'Simulate run';
       meta.appendChild(btn);
   
       btn.addEventListener('click', function () {
         if (btn.disabled) return;
-        btn.disabled = true;
+        btn.disabled    = true;
         btn.textContent = 'Running…';
   
         // Reset all nodes to pending
@@ -131,18 +128,18 @@
               status.className = 'stage-status passing';
             }
   
-            // After last node
+            // After last node finishes, reset everything
             if (index === nodes.length - 1) {
-                setTimeout(function () {
-                  nodes.forEach(function (n) {
-                    n.classList.remove('active');
-                    const s = n.querySelector('.stage-status');
-                    if (s) { s.className = 'stage-status pending'; }
-                  });
-                  btn.disabled = false;
-                  btn.textContent = 'Simulate run';
-                }, 1500);
-              }
+              setTimeout(function () {
+                nodes.forEach(function (n) {
+                  n.classList.remove('active');
+                  const s = n.querySelector('.stage-status');
+                  if (s) { s.className = 'stage-status pending'; }
+                });
+                btn.disabled    = false;
+                btn.textContent = 'Simulate run';
+              }, 1500);
+            }
           }, index * 600);
         });
       });
