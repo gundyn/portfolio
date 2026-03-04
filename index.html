@@ -347,42 +347,8 @@ jobs:
 
     </main>
 
-<<<<<<< HEAD
-    <script>
-      // Mobile nav toggle
-      const toggle = document.querySelector('.nav-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      if (toggle) {
-        toggle.addEventListener('click', () => {
-          const expanded = toggle.getAttribute('aria-expanded') === 'true';
-          toggle.setAttribute('aria-expanded', !expanded);
-          navLinks.classList.toggle('open');
-        });
-        navLinks.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-            navLinks.classList.remove('open');
-            toggle.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
-
-      // Shrink header on scroll
-      window.addEventListener('scroll', () => {
-        document.querySelector('.site-header').classList.toggle('scrolled', window.scrollY > 50);
-      });
-
-      // Scroll reveal
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('show');
-        });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.hidden.fade').forEach(el => observer.observe(el));
-    </script>
-=======
     <script src="src/js/index.js"></script>
     <script src="src/js/pipeline.js"></script>
->>>>>>> dev
 
   </body>
 </html>
