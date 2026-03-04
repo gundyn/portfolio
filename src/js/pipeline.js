@@ -58,11 +58,11 @@
           tooltip.style.left      = rect.left + 'px';
           tooltip.style.transform = 'translateY(8px)';
         } else if (index === nodes.length - 1) {
-          // Last node — anchor to right edge so it never clips off-screen
-          tooltip.style.top       = TOP + 'px';
-          tooltip.style.right     = (window.innerWidth - rect.right) + 'px';
-          tooltip.style.transform = 'translateY(8px)';
-        } else {
+            // Last node — anchor to right edge so it never clips off-screen
+            tooltip.style.top       = TOP + 'px';
+            tooltip.style.right     = (window.innerWidth - rect.right) + 'px';
+            tooltip.style.transform = 'translateY(8px)';
+          } else {
           // Middle nodes — center under the node
           tooltip.style.top       = TOP + 'px';
           tooltip.style.left      = (rect.left + rect.width / 2) + 'px';
