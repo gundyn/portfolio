@@ -465,6 +465,7 @@
   /* ============================================
 	 7. Pipeline
 	 ============================================ */
+<<<<<<< HEAD
   
   .pipeline-diagram {
 	margin-bottom: 72px;
@@ -477,12 +478,35 @@
   .pipeline-diagram::-webkit-scrollbar {
 	display: none;
   }
+=======
+
+	.pipeline-diagram {
+		margin-bottom: 72px;
+		overflow: visible;
+		padding-bottom: 8px;
+	}
+	
+	.pipeline-diagram::-webkit-scrollbar {
+	display: none;                /* Chrome/Safari */
+	}
+>>>>>>> dev
   
   .pipeline-flow {
 	display: flex;
 	align-items: flex-start;
 	min-width: 640px;
 	padding-top: 10px;
+<<<<<<< HEAD
+=======
+	position: relative;
+	overflow-x: auto;
+	scrollbar-width: none; 
+	-ms-overflow-style: none;
+  }
+
+  .pipeline-flow::-webkit-scrollbar {
+	display: none;
+>>>>>>> dev
   }
   
   .pipeline-stage {
@@ -698,9 +722,15 @@
 	border-radius: 100px;
 	margin-top: 8px;
   }
+<<<<<<< HEAD
   
   /* --- Code Snippet Block --- */
   .code-snippet {
+=======
+
+/* --- Code Snippet Block --- */
+.code-snippet {
+>>>>>>> dev
 	margin-top: 12px;
 	border: 1px solid var(--border-light);
 	border-radius: var(--radius);
@@ -829,6 +859,7 @@
 	border-radius: 3px;
   }
 
+<<<<<<< HEAD
 /* --- Cloudflare Request Flow --- */
 	.cf-flow {
 		display: flex;
@@ -913,6 +944,102 @@
 		color: var(--text-secondary);
 		line-height: 1.5;
 	}
+=======
+/* --- Stage node tooltips --- */
+.stage-node {
+	cursor: pointer;
+  }
+  
+  .stage-tooltip {
+	position: absolute;
+	top: calc(100% + 10px);
+	left: 50%;
+	transform: translateX(-50%) translateY(4px);
+	background: var(--bg-card-hover);
+	border: 1px solid var(--border-light);
+	border-radius: var(--radius);
+	padding: 10px 14px;
+	width: 200px;
+	z-index: 100;
+	opacity: 0;
+	transition: opacity var(--transition), transform var(--transition);
+	pointer-events: none;
+	text-align: left;
+  }
+  
+  .stage-tooltip--visible {
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
+  }
+  
+  .stage-tooltip strong {
+	display: block;
+	font-family: var(--font-display);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: var(--accent);
+	margin-bottom: 6px;
+  }
+  
+  .stage-tooltip p {
+	font-size: 0.72rem;
+	color: var(--text-secondary);
+	line-height: 1.5;
+	margin: 0;
+  }
+  
+  /* --- Simulate run button --- */
+  .pipeline-simulate-btn {
+	font-family: var(--font-display);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--text-secondary);
+	background: none;
+	border: 1px solid var(--border-light);
+	border-radius: 100px;
+	padding: 5px 14px;
+	cursor: pointer;
+	transition: color var(--transition), border-color var(--transition);
+  }
+  
+  .pipeline-simulate-btn:hover {
+	color: var(--accent);
+	border-color: var(--accent);
+  }
+  
+  .pipeline-simulate-btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+  }
+  
+  /* --- Stage node active transition --- */
+  .stage-node {
+	transition: border-color var(--transition), background var(--transition), transform var(--transition);
+  }
+  
+  .stage-node:hover {
+	transform: translateY(-2px);
+  }
+  
+  .stage-node.active {
+	border-color: rgb(77 158 255 / 40%);
+	background: var(--accent-dim);
+  }
+  
+  /* --- Pipeline card hover lift --- */
+  .pipeline-card {
+	transition: background var(--transition-slow), transform var(--transition-slow);
+  }
+  
+  .pipeline-card:hover {
+	background: var(--bg-card-hover);
+	transform: translateY(-2px);
+  }
+>>>>>>> dev
   
 	.cf-runs-link {
 		margin-top: 4px;
