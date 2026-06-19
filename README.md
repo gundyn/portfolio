@@ -20,7 +20,7 @@ Push to main
     ├── Check Links         (lychee)
     └── Cypress E2E Tests
             │
-            └── Deploy to GitHub Pages → Cloudflare CDN
+            └── Deploy to Cloudflare Pages (Wrangler)
 ```
 
 All four quality jobs run in parallel. Deploy only fires if every check passes.
@@ -31,9 +31,10 @@ All four quality jobs run in parallel. Deploy only fires if every check passes.
 
 | Layer | Tool |
 |---|---|
-| Hosting | GitHub Pages |
+| Hosting | Cloudflare Pages |
 | CDN / DNS / SSL | Cloudflare |
 | CI/CD | GitHub Actions |
+| Deploy | Wrangler (cloudflare/wrangler-action) |
 | HTML validation | html-validate |
 | CSS linting | stylelint |
 | Link checking | lychee |
@@ -49,7 +50,9 @@ All four quality jobs run in parallel. Deploy only fires if every check passes.
 portfolio/
 ├── .github/
 │   └── workflows/
-│       └── main.yml        # CI/CD pipeline
+│       └── deploy.yml      # CI/CD pipeline
+├── .well-known/
+│   └── security.txt        # Vulnerability disclosure contact (RFC 9116)
 ├── cypress/                # E2E test suite
 ├── files/
 │   └── Nathan_Gundy_Resume.pdf
@@ -57,7 +60,8 @@ portfolio/
 ├── src/js/
 ├── .htmlvalidate.json      # HTML validation config
 ├── .stylelintrc.json       # CSS lint config
-├── CNAME                   # Custom domain for GitHub Pages
+├── _redirects              # Cloudflare Pages routing (.well-known passthrough)
+├── CNAME                   # Custom domain
 ├── index.html              # Main site
 ├── robots.txt
 ├── sitemap.xml
@@ -86,12 +90,26 @@ npx cypress run      # headless
 
 ## Workflow details
 
-The pipeline is defined in `.github/workflows/main.yml`. Key design decisions:
+The pipeline is defined in `.github/workflows/deploy.yml`. Key design decisions:
 
 - **Parallel jobs** — validation, linting, link checking, and E2E tests all run simultaneously to minimize total pipeline time
-- **Gated deploy** — deploy job uses `needs:` to require all checks to pass first
+- **Gated deploy** — the deploy job uses `needs:` to require all four checks to pass before publishing to Cloudflare Pages via Wrangler
 - **Push-only deploy** — deploy skips on pull requests to prevent premature releases
 - **`workflow_dispatch`** — manual trigger available from the GitHub Actions UI
+
+Deploying through `wrangler pages deploy` (rather than Cloudflare's built-in Git
+integration) is what makes the gate real: Cloudflare's auto-deploy would publish
+every push immediately, *without* waiting for the tests above.
+
+The deploy job reads these GitHub Actions settings (Settings → Secrets and variables → Actions):
+
+- `CLOUDFLARE_API_TOKEN` (secret) — token with the **Cloudflare Pages: Edit** permission
+- `CLOUDFLARE_ACCOUNT_ID` (secret) — Cloudflare account ID
+- `CLOUDFLARE_PROJECT_NAME` (variable) — the Pages project name
+
+Until all three are set the deploy job logs a warning and skips, so CI stays green.
+Once they're set, **disable automatic Git deployments** on the Cloudflare Pages
+project so this gated job is the only path to production.
 
 ---
 
