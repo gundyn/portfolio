@@ -1,0 +1,4 @@
+# Always serve real files under /.well-known/ (e.g. security.txt) as-is.
+# Without this, the single-page-app "not found -> index.html" fallback can
+# shadow these paths and return the homepage instead of the file.
+/.well-known/*  /.well-known/:splat  200
