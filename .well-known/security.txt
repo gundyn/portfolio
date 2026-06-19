@@ -1,3 +1,4 @@
 Contact: mailto:nathan.gundy@gmail.com
 Expires: 2027-06-19T00:00:00.000Z
 Preferred-Languages: en
+Canonical: https://www.nathangundy.com/.well-known/security.txt
