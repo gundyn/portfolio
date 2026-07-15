@@ -1,0 +1,77 @@
+name: Deploy to AWS (S3 + CloudFront)
+
+# Additive to deploy.yml (Cloudflare Pages). This publishes the same static
+# site to AWS in parallel so the portfolio demonstrates a multi-target release.
+# Safe to merge before AWS is set up: if the config variables are missing, the
+# deploy steps skip with a warning instead of failing.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Required for GitHub OIDC -> AWS role assumption (no stored AWS keys).
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: deploy-aws
+  cancel-in-progress: true
+
+jobs:
+  deploy-aws:
+    name: Sync to S3 & invalidate CloudFront
+    runs-on: ubuntu-latest
+    # Only deploy on real pushes to main (or manual runs), never on forks' PRs.
+    if: github.ref == 'refs/heads/main'
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION }}
+      AWS_DEPLOY_ROLE_ARN: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+      AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET }}
+      AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check AWS configuration
+        id: creds
+        run: |
+          if [ -n "$AWS_DEPLOY_ROLE_ARN" ] && [ -n "$AWS_S3_BUCKET" ] && [ -n "$AWS_CLOUDFRONT_DISTRIBUTION_ID" ] && [ -n "$AWS_REGION" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::AWS deploy skipped. Run the Terraform in portfolio-cloud-infra, then set repo variables AWS_REGION, AWS_DEPLOY_ROLE_ARN, AWS_S3_BUCKET, and AWS_CLOUDFRONT_DISTRIBUTION_ID (from the Terraform outputs)."
+          fi
+
+      - name: Configure AWS credentials (OIDC)
+        if: steps.creds.outputs.configured == 'true'
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Sync site to S3
+        if: steps.creds.outputs.configured == 'true'
+        run: |
+          aws s3 sync . "s3://${AWS_S3_BUCKET}" \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "node_modules/*" \
+            --exclude "cypress/*" \
+            --exclude "cypress.config.js" \
+            --exclude "package.json" \
+            --exclude "package-lock.json" \
+            --exclude ".htmlvalidate.json" \
+            --exclude ".stylelintrc.json" \
+            --exclude ".gitignore" \
+            --exclude ".DS_Store" \
+            --exclude "README.md" \
+            --exclude "_redirects"
+
+      - name: Invalidate CloudFront cache
+        if: steps.creds.outputs.configured == 'true'
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "${AWS_CLOUDFRONT_DISTRIBUTION_ID}" \
+            --paths "/*"
